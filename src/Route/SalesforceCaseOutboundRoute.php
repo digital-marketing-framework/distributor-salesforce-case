@@ -66,10 +66,13 @@ class SalesforceCaseOutboundRoute extends RequestOutboundRoute
         $urlSchema->setDefaultValue('https://{XYZ}.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8');
 
         $orgidSchema = new StringSchema(static::DEFAULT_ORGID);
-        $schema->addProperty(static::KEY_ORGID, $orgidSchema);
+        $orgidSchema->getRenderingDefinition()->setLabel('ORG ID');
+        $property = $schema->addProperty(static::KEY_ORGID, $orgidSchema);
+        $property->setWeight(60);
 
         $debugSchema = new StringSchema(static::DEFAULT_DEBUG_EMAIL);
-        $schema->addProperty(static::KEY_DEBUG_EMAIL, $debugSchema);
+        $property = $schema->addProperty(static::KEY_DEBUG_EMAIL, $debugSchema);
+        $property->setWeight(60);
 
         return $schema;
     }
