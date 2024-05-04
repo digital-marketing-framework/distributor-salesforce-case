@@ -2,12 +2,12 @@
 
 namespace DigitalMarketingFramework\Distributor\SalesforceCase\Route;
 
+use DigitalMarketingFramework\Core\Integration\IntegrationInfo;
 use DigitalMarketingFramework\Core\Model\Data\DataInterface;
 use DigitalMarketingFramework\Core\SchemaDocument\FieldDefinition\FieldDefinition;
 use DigitalMarketingFramework\Core\SchemaDocument\Schema\ContainerSchema;
 use DigitalMarketingFramework\Core\SchemaDocument\Schema\SchemaInterface;
 use DigitalMarketingFramework\Core\SchemaDocument\Schema\StringSchema;
-use DigitalMarketingFramework\Core\DataProcessor\DataProcessor;
 use DigitalMarketingFramework\Distributor\Request\Route\RequestOutboundRoute;
 
 class SalesforceCaseOutboundRoute extends RequestOutboundRoute
@@ -20,19 +20,9 @@ class SalesforceCaseOutboundRoute extends RequestOutboundRoute
 
     public const DEFAULT_DEBUG_EMAIL = '';
 
-    public static function getIntegrationName(): string
+    public static function getDefaultIntegrationInfo(): IntegrationInfo
     {
-        return 'salesforce';
-    }
-
-    public static function getIntegrationLabel(): ?string
-    {
-        return 'SalesForce';
-    }
-
-    public static function getOutboundRouteListLabel(): ?string
-    {
-        return null;
+        return new IntegrationInfo('salesforce', 'SalesForce');
     }
 
     public static function getLabel(): ?string
