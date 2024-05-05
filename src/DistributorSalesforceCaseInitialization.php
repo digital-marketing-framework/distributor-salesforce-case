@@ -4,15 +4,15 @@ namespace DigitalMarketingFramework\Distributor\SalesforceCase;
 
 use DigitalMarketingFramework\Core\Initialization;
 use DigitalMarketingFramework\Core\Registry\RegistryDomain;
-use DigitalMarketingFramework\Distributor\Core\Route\RouteInterface;
-use DigitalMarketingFramework\Distributor\SalesforceCase\Route\SalesforceCaseRoute;
+use DigitalMarketingFramework\Distributor\Core\Route\OutboundRouteInterface;
+use DigitalMarketingFramework\Distributor\SalesforceCase\Route\SalesforceCaseOutboundRoute;
 
 class DistributorSalesforceCaseInitialization extends Initialization
 {
     protected const PLUGINS = [
         RegistryDomain::DISTRIBUTOR => [
-            RouteInterface::class => [
-                SalesforceCaseRoute::class,
+            OutboundRouteInterface::class => [
+                SalesforceCaseOutboundRoute::class,
             ],
         ],
     ];
